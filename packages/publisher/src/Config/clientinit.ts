@@ -1,29 +1,30 @@
 import Redis from "ioredis";
 
-export class RedisClientConfig{
-    private static instance:RedisClientConfig;
-    private redis=new Redis();
-    private publisher= Redis.createClient();
+export class RedisClientConfig {
+    private static instance: RedisClientConfig;
+    private redis = new Redis();
+    private publisher = Redis.createClient();
 
-    private constructor(){
-        this.publisher.connect();
-    }
+    private constructor() {}
 
-    public static getInstance(){
-        if(!this.instance){
-            this.instance=new RedisClientConfig();
+    public static getInstance() {
+        if (!this.instance) {
+            this.instance = new RedisClientConfig();
         }
         return this.instance;
     }
 
-    getPublisherInstance(){
+    getPublisherInstance() {
         return this.publisher;
     }
-    getRedisInstance(){
+    getRedisInstance() {
         return this.redis;
     }
 
-    async publishMessage(queueName:string,message:any){
-        await this.publisher.lpush(queueName,JSON.stringify(message))
+    async publishMessage(queueName: string, message: any) {
+        try {
+            await this.publisher.lpush(queueName, message)
+        }
+        catch(err) {}
     }
 }

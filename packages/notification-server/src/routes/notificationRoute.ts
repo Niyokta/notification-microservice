@@ -6,8 +6,8 @@ const notificationRoute = express.Router();
 
 notificationRoute.post('/notification/send', (req: express.Request, res: express.Response) => {
     try{
-        const {to, subject, text} = req.body;
-        const mailtext=validateTemplate("welcome","");
+        const {to, subject, data} = req.body;
+        const mailtext=validateTemplate("welcome",data);
         sendEmail(to, subject, mailtext);
         res.send('Email sent');
     }

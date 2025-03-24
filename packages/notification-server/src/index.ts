@@ -1,10 +1,10 @@
 import express from "express"
 import notificationRoute from "./routes/notificationRoute";
-
+import cors from "cors";
 
 
 const app=express();
-
+app.use( cors() )
 const PORT=process.env.NOTIFICATION_SERVER_PORT
 
 app.use(express.json());
