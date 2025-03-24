@@ -6,7 +6,12 @@
   ],
   "dependencies": {
     "@types/express": "^5.0.1",
-    "express": "^4.21.2"
+    "@types/ioredis": "^4.28.10",
+    "@types/nodemailer": "^6.4.17",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "ioredis": "^5.6.0",
+    "nodemailer": "^6.10.0"
   },
   "devDependencies": {
     "lerna": "^8.2.1"

@@ -2,7 +2,8 @@ import express from "express"
 
 
 const app=express();
+const PORT=process.env.SUBSCRIBER_PORT
 
-app.listen(4000,()=>{
-    console.log("subscriber running on 4k")
+app.listen(PORT,()=>{
+    console.log(`Subscriber running on port ${PORT}`)
 })
