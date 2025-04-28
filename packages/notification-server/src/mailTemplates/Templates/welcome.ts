@@ -73,6 +73,30 @@ const convertToWelcomeText = (username:string): string => {
     // `
 }
 
+const convertToNewLoginText= () => {
+    return `
+        <html>
+        <head>
+            <style>
+                .heading{
+                    font-size:40,
+                    font-weight:bold,
+                }
+                .report{
+                    font-size:15,
+                    font-weight:300
+                }
+            </style>
+        </head>
+        <body>
+            <h1 class="heading">New Login Detected</h1>
+            <p class="report">Not you ? Report fraud</p>
+        </body>
+        </html> 
+
+    `
+}
 
 
-export { convertToWelcomeText }
+
+export { convertToWelcomeText,convertToNewLoginText }
